@@ -41,3 +41,7 @@ policy-gen -- {command}
 ```
 
 This doesn't work with `aws --profile {profile}` because `policy-gen` needs to be able to obtain the credentials from the environment _before_ calling the `aws` CLI tool.
+
+## Output
+
+This will write a JSON file to the current directory — `required-permissions.policy.json` — containing an IAM policy for the command that was run.
