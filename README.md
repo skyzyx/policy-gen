@@ -1,6 +1,6 @@
 # PolicyGen: An IAM Policy Genenerator Wrapper
 
-Simple Bash wrapper for [`iamlive`](https://github.com/iann0036/iamlive) that can be chained from tools like AWS Vault or AWS Okta.
+Simple Bash wrapper for [`iamlive`](https://github.com/iann0036/iamlive) that can be chained from tools like [AWS Vault] or [AWS Okta].
 
 ## Requirements
 
@@ -24,8 +24,8 @@ Using AWS credentials for things that are not the AWS CLI is studpidly complex. 
 
 | Tool | Use-case |
 |-|-|
-| [AWS Vault](https://github.com/99designs/aws-vault) | For everybody. Also has native support for AWS SSO. |
-| [AWS Okta](https://github.com/fiveai/aws-okta) | For those who use Okta as an enterprise SSO solution for their AWS accounts. |
+| [AWS Vault] | For everybody. Also has native support for AWS SSO. |
+| [AWS Okta] | For those who use Okta as an enterprise SSO solution for their AWS accounts. |
 
 ```bash
 # Pattern
@@ -45,3 +45,6 @@ This doesn't work with `aws --profile {profile}` because `policy-gen` needs to b
 ## Output
 
 This will write a JSON file to the current directory — `required-permissions.policy.json` — containing an IAM policy for the command that was run.
+
+  [AWS Vault]: https://github.com/99designs/aws-vault
+  [AWS Okta]: https://github.com/fiveai/aws-okta
