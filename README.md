@@ -1,4 +1,4 @@
-# IAM Policy Genenerator
+# PolicyGen: An IAM Policy Genenerator Wrapper
 
 Simple Bash wrapper for [`iamlive`](https://github.com/iann0036/iamlive) that can be chained from tools like AWS Vault or AWS Okta.
 
