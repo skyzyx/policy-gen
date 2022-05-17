@@ -1,4 +1,4 @@
-# Policy Genenerator
+# IAM Policy Genenerator
 
 Simple Bash wrapper for [`iamlive`](https://github.com/iann0036/iamlive) that can be chained from tools like AWS Vault or AWS Okta.
 
@@ -8,6 +8,15 @@ Simple Bash wrapper for [`iamlive`](https://github.com/iann0036/iamlive) that ca
 * [AWS CLI](https://github.com/aws/aws-cli/tree/v2)
 * [jq](https://stedolan.github.io/jq/)
 * [iamlive](https://github.com/iann0036/iamlive)
+
+## Install
+
+You should install `policy-gen` into your `$PATH`. Use `sudo` if appropriate.
+
+```bash
+curl -sSLf https://github.com/skyzyx/policy-gen/raw/main/policy-gen -o /usr/local/bin/policy-gen
+chmod +x /usr/local/bin/policy-gen
+```
 
 ## Usage
 
