@@ -17,10 +17,6 @@ IAMLIVE_PID=$(
         --account-id "$ACCOUNT_ID"
 )
 
-OPTS=$(getopt -- "$@")
-
-eval set -- "$OPTS"
-
 while :; do
     case "$1" in
         --)
@@ -29,6 +25,7 @@ while :; do
             ;;
         *)
             echo "Unexpected option: $1"
+            exit 1
             ;;
     esac
 done
