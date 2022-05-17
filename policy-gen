@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# Enable IAMLIVE data collection.
+export AWS_CSM_ENABLED=true
+export AWS_CSM_HOST=127.0.0.1
+export AWS_CSM_PORT=31000
+
+# Run background process to collect data from AWS tools.
+ACCOUNT_ID=$(aws sts get-caller-identity | jq -Mr '.Account')
+IAMLIVE_PID=$(
+    iamlive \
+        --background \
+        --force-wildcard-resource \
+        --output-file "${PWD}/required-permissions.policy.json" \
+        --refresh-rate 1 \
+        --sort-alphabetical \
+        --account-id "$ACCOUNT_ID"
+)
+
+OPTS=$(getopt -- "$@")
+
+eval set -- "$OPTS"
+
+while :; do
+    case "$1" in
+        --)
+            shift
+            break
+            ;;
+        *)
+            echo "Unexpected option: $1"
+            ;;
+    esac
+done
+
+eval "$*"
+
+# Disable IAMLIVE and write to disk.
+kill "$IAMLIVE_PID"
+unset AWS_CSM_ENABLED AWS_CSM_HOST AWS_CSM_PORT IAMLIVE_PID ACCOUNT_ID
